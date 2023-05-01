@@ -41,12 +41,12 @@ const Home = () => {
           />
         </div>
       </div>
-      <section className="mt-10">
+      <section className="my-20">
         <h1 className="text-4xl text-center text-white font-semibold my-5">
           Why Us?
         </h1>
         <p className="text-center">
-          Because we assure you the best quality food and best Chef
+          Because we ensure you the best quality food and best Chef
         </p>
         <div className="flex justify-evenly mt-20">
           <div>
