@@ -38,7 +38,7 @@ const Home = () => {
           />
         </div>
       </div>
-      <section>
+      <section className="grid grid-cols-3 my-20 gap-7">
         {chefs.map((chef) => (
           <Chef key={chef.id} chef={chef}></Chef>
         ))}
