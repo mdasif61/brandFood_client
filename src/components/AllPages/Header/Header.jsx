@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="flex justify-between items-center">
       <h1 className="text-4xl font-bold flex-1">
-        Brand<span className="text-red-500 text-5xl">Food</span>
+        Brand<span className="text-red-500 text-5xl">Food.C</span>
       </h1>
       <nav>
         <NavLink

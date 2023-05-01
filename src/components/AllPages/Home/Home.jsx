@@ -1,6 +1,9 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Chef from "../Chef/Chef";
+import chef from "../../../assets/Icons/chef.png";
+import service from "../../../assets/Icons/service.png";
+import quality from "../../../assets/Icons/quality.png";
 
 const Home = () => {
   const chefs = useLoaderData();
@@ -38,6 +41,44 @@ const Home = () => {
           />
         </div>
       </div>
+      <section className="mt-10">
+        <h1 className="text-4xl text-center text-white font-semibold my-5">
+          Why Us?
+        </h1>
+        <p className="text-center">
+          Because we assure you the best quality food and best Chef
+        </p>
+        <div className="flex justify-evenly mt-20">
+          <div>
+            <img className="w-20 mb-5" src={chef} alt="" />
+            <h1 className="text-xl text-white mb-2">Get Best Chef</h1>
+            <p>
+              You can get best Chef on
+              <br />
+              your choose
+            </p>
+          </div>
+          <div>
+            <img className="w-20 mb-5" src={service} alt="" />
+            <h1 className="text-xl text-white mb-2">Get Best Service</h1>
+            <p>
+              You can get best Service on
+              <br />
+              your choose Chef
+            </p>
+          </div>
+          <div>
+            <img className="w-20 mb-5" src={quality} alt="" />
+            <h1 className="text-xl text-white mb-2">Get Best Quality</h1>
+            <p>
+              You can get best Quality on
+              <br />
+              Our Chef
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="grid grid-cols-3 my-20 gap-7">
         {chefs.map((chef) => (
           <Chef key={chef.id} chef={chef}></Chef>
