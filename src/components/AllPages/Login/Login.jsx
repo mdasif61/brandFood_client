@@ -1,12 +1,15 @@
 import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import toast from 'react-hot-toast';
 
 const Login = () => {
   const [error,setError]=useState("");
   const {signIn}=useContext(AuthContext);
+  const location=useLocation();
+  const from=location.state?.from?.pathname || '/'
+  const navigate=useNavigate()
 
   const handleLogin=(event)=>{
     event.preventDefault();
@@ -18,7 +21,8 @@ const Login = () => {
     .then(result=>{
       console.log(result)
       setError("")
-      toast.success("Successfully Login")
+      toast.success("Successfully Login");
+      navigate(from)
     })
     .catch(error=>{
       console.log(error)

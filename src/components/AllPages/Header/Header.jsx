@@ -31,7 +31,7 @@ const Header = () => {
         >
           Blog
         </NavLink>
-        {user?<><button onClick={handleLogOut} className="btn bg-red-300  border-none mr-5"><NavLink
+        {user?<><button onClick={handleLogOut} className="btn  border-none mr-5"><NavLink
           className={({ isActive }) =>
             isActive ? "text-red-500 font-semibold mx-12" : "mx-12"
           }
