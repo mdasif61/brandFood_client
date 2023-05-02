@@ -1,8 +1,9 @@
 import React from "react";
 import "./Chef.css";
+import { Link } from "react-router-dom";
 
 const Chef = ({ chef }) => {
-  const { chef_name, image, years_of_experience, number_of_recipes, likes } =
+  const { chef_name, image, years_of_experience, number_of_recipes, likes,id } =
     chef;
   return (
     <div className="bg-white p-10 h-[550px] rounded-b-2xl flex flex-col justify-between">
@@ -19,9 +20,11 @@ const Chef = ({ chef }) => {
           <h3>Likes : {likes}</h3>
         </div>
       </div>
+      <Link to={`/chef/${id}`}>
       <button className="btn mt-4 bg-red-500 border-none w-full text-white">
         View Recipes
       </button>
+      </Link>
     </div>
   );
 };
