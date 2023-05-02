@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Chef from "../Chef/Chef";
 import chef from "../../../assets/Icons/chef.png";
 import service from "../../../assets/Icons/service.png";
@@ -28,9 +28,11 @@ const Home = () => {
               <br />
               stir-frying, steaming, and braising.
             </p>
+            <a href="#chef">
             <button className="btn bg-red-500 text-white border-none mt-10">
               Choose Your Chef
             </button>
+            </a>
           </div>
         </div>
         <div className="w-[50%] p-10">
@@ -79,7 +81,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="grid grid-cols-3 my-20 gap-7">
+      <section id="chef" className="grid grid-cols-3 my-20 gap-7">
         {chefs.map((chef) => (
           <Chef key={chef.id} chef={chef}></Chef>
         ))}

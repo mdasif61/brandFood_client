@@ -1,5 +1,6 @@
 import React from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -31,6 +32,7 @@ const Login = () => {
         <button className="btn bg-red-500 border-none text-white w-full mt-3">
           Login
         </button>
+        <p className="mt-3">Don't Have An Account? <Link to='/register'><span className="text-red-500 underline">Register</span></Link></p>
 
         <div className="mt-5">
           <h1 className="text-center text-white">Or</h1>

@@ -1,13 +1,24 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import banner from '../../../assets/Images/detailsBanner.jpg'
 import './ChefDetails.css';
 import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
+import toast from 'react-hot-toast';
+import LoadingPage from '../LoadingPage/LoadingPage';
 
 const ChefDetails = () => {
     const ChefDetail = useLoaderData()
     console.log(ChefDetail)
+    const [message,setMassage]=useState("")
+    const handleToast=()=>{
+       const message= toast(ChefDetail.recipe_name);
+       setMassage(message)
+    }
+    const navigation=useNavigation();
+    if(navigation.state==="loading"){
+      return <LoadingPage/>
+    }
     return (
         <div className='my-10 w-full mx-0'>
             <header className='bg-white w-full relative'>
@@ -29,7 +40,7 @@ const ChefDetails = () => {
             </header>
             <div className='w-full my-12'>
                 <table className='table border my-6 w-full'>
-                    <thead className='border'>
+                    <thead>
                         <tr>
                             <th>Recipe Name</th>
                             <th>Ingredients</th>
@@ -57,7 +68,7 @@ const ChefDetails = () => {
                     </tbody>
                 </table>
                 <div className='w-full text-center'>
-                <button className='btn bg-red-500 border-none text-white'>Favorite</button>
+                <button disabled={message} onClick={handleToast} className='btn bg-red-500 border-none text-white'>Favorite</button>
                 </div>
             </div>
         </div>

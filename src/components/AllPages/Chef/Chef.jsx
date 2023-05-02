@@ -1,13 +1,20 @@
 import React from "react";
 import "./Chef.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 const Chef = ({ chef }) => {
   const { chef_name, image, years_of_experience, number_of_recipes, likes,id } =
     chef;
+
+    const navigation=useNavigation();
+    if(navigation.state==="loading"){
+      return <LoadingPage/>
+    }
+
   return (
-    <div className="bg-white p-10 h-[550px] rounded-b-2xl flex flex-col justify-between">
-      <div className="h-[250px] bg-black overflow-hidden rounded-b-2xl">
+    <div className="bg-white p-10 h-[500px] rounded-b-2xl flex flex-col justify-between">
+      <div className="overflow-hidden rounded-b-2xl">
         <img className="chef" src={image} alt="" />
       </div>
       <div>

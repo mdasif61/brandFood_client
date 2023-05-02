@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
 
 const Header = () => {
+
+  const {user}=useContext(AuthContext);
+
   return (
     <div className="flex justify-between items-center">
       <h1 className="text-4xl font-bold flex-1">
@@ -24,30 +28,29 @@ const Header = () => {
         >
           Blog
         </NavLink>
-        <NavLink
+        {user?<><button className="btn bg-red-300  border-none mr-5"><NavLink
+          className={({ isActive }) =>
+            isActive ? "text-red-500 font-semibold mx-12" : "mx-12"
+          }
+          to="/login"
+        >
+          Log Out
+        </NavLink></button></>:<><button className="btn mr-5 bg-red-300 border-none text-white"><NavLink
           className={({ isActive }) =>
             isActive ? "text-red-500 font-semibold mx-12" : "mx-12"
           }
           to="/login"
         >
           Login
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-red-500 font-semibold mx-12" : "mx-12"
-          }
-          to="/register"
-        >
-          Register
-        </NavLink>
+        </NavLink></button></>}
       </nav>
-      <div className="w-12 h-12 bg-black overflow-hidden rounded-full">
+      {user && <div className="w-12 h-12 bg-black overflow-hidden rounded-full">
         <img
           className="h-full"
           src="https://media.istockphoto.com/id/1309328823/photo/headshot-portrait-of-smiling-male-employee-in-office.jpg?b=1&s=170667a&w=0&k=20&c=MRMqc79PuLmQfxJ99fTfGqHL07EDHqHLWg0Tb4rPXQc="
           alt=""
         />
-      </div>
+      </div>}
     </div>
   );
 };
