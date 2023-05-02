@@ -5,10 +5,10 @@ import { FaFacebook, FaInstagram, FaTwitter, FaGoogle } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <div className="flex justify-between py-14 px-20 bg-black mt-5 border-t-2">
+      <div className="flex flex-col text-center md:text-left md:flex-row justify-between py-14 md:px-20 bg-black mt-5 border-t-2">
         <nav>
-          <h1 className="text-4xl font-bold flex-1 py-2 mb-4 border-b-2">
-            Brand<span className="text-red-500 text-5xl">Food</span>
+          <h1 className="md:text-4xl text-xl font-bold flex-1 py-2 mb-4 md:border-b-2">
+            Brand<span className="text-red-500 text-xl md:text-5xl">Food</span>
           </h1>
           <ul>
             <li className="hover:underline mt-4">
@@ -28,21 +28,21 @@ const Footer = () => {
             </li>
           </ul>
         </nav>
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="text-3xl text-red-500 mb-5">NEWSLETTER</h1>
+        <div className="flex flex-col md:mt-0 mt-10 items-center justify-center">
+          <h1 className="md:text-3xl text-xl text-red-500 md:mb-5 mb-2">NEWSLETTER</h1>
           <input
-            className="mt-5 bg-white w-[350px] py-2 px-3 rounded-lg"
+            className="mt-5 bg-white md:w-[350px] w-9/12 py-2 px-3 rounded-lg"
             type="text"
             placeholder="subscribe now"
             name=""
             id=""
           />
-          <button className="btn border-red-500 bg-transparent mt-6 hover:bg-transparent hover:bg-red-500 text-white">
+          <button className="btn border-red-500 bg-transparent mt-6 hover:bg-red-500 text-white mb-5 md:mb-0">
             Subscribe Now
           </button>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-3xl mb-5">Contact</h1>
+          <h1 className="md:text-3xl text-xl mb-5">Contact</h1>
           <p className="text-center mb-5">123, Guangzhou City,<br/>China, No. 99 </p>
           <div className="flex">
           <span className="text-2xl m-3">

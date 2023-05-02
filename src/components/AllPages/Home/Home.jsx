@@ -13,10 +13,10 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-black bg-opacity-40 rounded-xl flex p-12 mt-10">
-        <div className="w-[50%] flex items-center">
+      <div className="bg-black bg-opacity-40 rounded-xl flex flex-col-reverse md:flex-row  md:p-12 p-5 mt-10">
+        <div className="md:w-[50%] w-full flex items-center">
           <div className="">
-            <h1 className="text-7xl font-bold text-white mb-10">
+            <h1 className="md:text-7xl text-2xl font-bold text-white md:mb-10">
               Amazing Cooking{" "}
             </h1>
             <p className="mt-5 leading-8">
@@ -31,13 +31,13 @@ const Home = () => {
               stir-frying, steaming, and braising.
             </p>
             <a href="#chef">
-              <button className="btn bg-red-500 text-white border-none mt-10">
+              <button className="btn bg-red-500 mt-5 text-white border-none md:mt-10">
                 Choose Your Chef
               </button>
             </a>
           </div>
         </div>
-        <div className="w-[50%] p-10">
+        <div className="md:w-[50%] w-full p-10">
           <img
             className="border-2 rounded-tl-2xl rounded-br-2xl"
             src="https://i.ibb.co/94sxL90/13-20.jpg"
@@ -52,8 +52,8 @@ const Home = () => {
         <p className="text-center">
           Because we ensure you the best quality food and best Chef
         </p>
-        <div className="flex justify-evenly mt-20">
-          <div>
+        <div className="flex mb-10 md:mb-0 flex-col md:flex-row items-center justify-evenly mt-20">
+          <div className="flex md:inline-block flex-col items-center text-center md:text-left">
             <img className="w-20 mb-5" src={chef} alt="" />
             <h1 className="text-xl text-white mb-2">Get Best Chef</h1>
             <p>
@@ -62,7 +62,7 @@ const Home = () => {
               your choose
             </p>
           </div>
-          <div>
+          <div className="flex mb-10 md:mb-0 md:inline-block flex-col items-center text-center md:text-left">
             <img className="w-20 mb-5" src={service} alt="" />
             <h1 className="text-xl text-white mb-2">Get Best Service</h1>
             <p>
@@ -71,7 +71,7 @@ const Home = () => {
               your choose Chef
             </p>
           </div>
-          <div>
+          <div className="flex mb-10 md:mb-0 md:inline-block flex-col items-center text-center md:text-left">
             <img className="w-20 mb-5" src={quality} alt="" />
             <h1 className="text-xl text-white mb-2">Get Best Quality</h1>
             <p>
@@ -83,18 +83,18 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="chef" className="grid grid-cols-3 my-20 gap-7">
+      <section id="chef" className="grid md:grid-cols-3 grid-cols-1 my-20 gap-7">
         {chefs.map((chef) => (
           <Chef key={chef.id} chef={chef}></Chef>
         ))}
       </section>
 
       <section className="my-20">
-        <fieldset className="border-2 flex p-5">
-          <legend className="border-2 bg-gray-600 rounded-full text-4xl text-white py-3 px-10 font-bold">
+        <fieldset className="border-2 flex flex-col-reverse md:flex-row p-5">
+          <legend className="border-2 bg-gray-600 rounded-full md:text-4xl text-xl text-center md:text-left text-white py-3 px-10 font-bold">
             Another Chef
           </legend>
-          <div className="w-[60%] p-5">
+          <div className="md:w-[60%] w-full md:p-5">
             <div className=" bg-white bg-opacity-20 my-5 border text-white rounded-lg hover:bg-opacity-90 hover:text-black hover:border p-5">
               <h1 className="font-bold text-lg">Martin Yan</h1>
               <p className="border-b pb-2 border-gray-400">
@@ -145,7 +145,7 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div className="w-[40%] bg-opacity-60 p-10 flex items-center justify-center bg-white rounded-lg">
+          <div className="md:w-[40%] w-full bg-opacity-60 p-10 flex items-center justify-center bg-white rounded-lg">
             <Lottie animationData={render} loop={true} />
           </div>
         </fieldset>

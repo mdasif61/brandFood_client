@@ -4,17 +4,23 @@ import { Link, useNavigation } from "react-router-dom";
 import LoadingPage from "../LoadingPage/LoadingPage";
 
 const Chef = ({ chef }) => {
-  const { chef_name, image, years_of_experience, number_of_recipes, likes,id } =
-    chef;
+  const {
+    chef_name,
+    image,
+    years_of_experience,
+    number_of_recipes,
+    likes,
+    id,
+  } = chef;
 
-    const navigation=useNavigation();
-    if(navigation.state==="loading"){
-      return <LoadingPage/>
-    }
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <LoadingPage />;
+  }
 
   return (
-    <div className="bg-white p-10 h-[500px] rounded-b-2xl flex flex-col justify-between">
-      <div className="overflow-hidden rounded-b-2xl">
+    <div className="bg-white hover:bg-opacity-40 hover:border-white hover:border-2 p-10 h-[500px] flex flex-col justify-between">
+      <div className="overflow-hidden">
         <img className="chef" src={image} alt="" />
       </div>
       <div>
@@ -28,9 +34,9 @@ const Chef = ({ chef }) => {
         </div>
       </div>
       <Link to={`/chef/${id}`}>
-      <button className="btn mt-4 bg-red-500 border-none w-full text-white">
-        View Recipes
-      </button>
+        <button className="btn mt-4 bg-red-500 border-none w-full text-white">
+          View Recipes
+        </button>
       </Link>
     </div>
   );
