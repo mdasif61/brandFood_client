@@ -49,8 +49,9 @@ const Header = () => {
       </nav>
       {user && <div className="w-12 h-12 bg-black overflow-hidden rounded-full">
         <img
+          title={user.displayName}
           className="h-full"
-          src="https://media.istockphoto.com/id/1309328823/photo/headshot-portrait-of-smiling-male-employee-in-office.jpg?b=1&s=170667a&w=0&k=20&c=MRMqc79PuLmQfxJ99fTfGqHL07EDHqHLWg0Tb4rPXQc="
+          src={user.photoURL} 
           alt=""
         />
       </div>}

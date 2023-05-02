@@ -6,16 +6,18 @@ import Blog from "../Blog/Blog";
 import Home from "../Home/Home";
 import ChefDetails from "../ChefDetails/ChefDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
-        loader:()=>fetch('http://localhost:1020/chef')
+        loader:()=>fetch('https://b7a10-chef-recipe-hunter-server-side-mdasif61.vercel.app/chef')
       },
       {
         path: "/login",
@@ -32,7 +34,7 @@ const router = createBrowserRouter([
       {
         path:'/chef/:id',
         element:<PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:1020/chef/${params.id}`)
+        loader:({params})=>fetch(`https://b7a10-chef-recipe-hunter-server-side-mdasif61.vercel.app/chef/${params.id}`)
       }
     ],
   },
