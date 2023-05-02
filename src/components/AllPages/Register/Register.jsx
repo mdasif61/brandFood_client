@@ -1,7 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
+import toast from 'react-hot-toast';
 
 const Register = () => {
+  const [error,setError]=useState("");
+  const [success,setSuccess]=useState("")
+  const {createUser}=useContext(AuthContext)
+  const navigate=useNavigate()
 
   const handleSubmit=(event)=>{
     event.preventDefault();
@@ -10,7 +16,38 @@ const Register = () => {
     const email=form.email.value;
     const password=form.password.value;
     const photoURL=form.photo.value;
-    console.log(name,email,password,photoURL)
+    console.log(name,email,password,photoURL);
+
+    if(!password){
+      setError("password has been required");
+      return;
+    }else if(password.length<6){
+      setError("password at least 6 characters !!")
+      return;
+    }else if(!email){
+      setError("email has been required");
+      return;
+    }else if(!email.includes("@")){
+      setError("email not valid");
+      return;
+    }
+
+    createUser(email,password)
+    .then(result=>{
+      const users=result.user;
+      console.log(users)
+      setError("");
+      toast.success("Successfully Register");
+      setTimeout(() => {
+        navigate('/login')
+      }, 2000);
+    })
+    .catch(error=>{
+      console.log(error)
+      setSuccess("")
+      setError(error.message)
+    })
+
   }
 
   return (
@@ -63,6 +100,7 @@ const Register = () => {
         </div>
         <button className="btn bg-red-500 border-none text-white w-full mt-3">Register</button>
         <p className="mt-3">Already Have An Account? <Link to='/login'><span className="text-red-500 underline">Login</span></Link></p>
+        <p className="text-center text-red-500 mt-4">{error}</p>
       </form>
     </div>
   );

@@ -4,7 +4,10 @@ import { AuthContext } from "../Context/AuthProvider";
 
 const Header = () => {
 
-  const {user}=useContext(AuthContext);
+  const {user,logOut}=useContext(AuthContext);
+  const handleLogOut=()=>{
+    logOut()
+  }
 
   return (
     <div className="flex justify-between items-center">
@@ -28,14 +31,14 @@ const Header = () => {
         >
           Blog
         </NavLink>
-        {user?<><button className="btn bg-red-300  border-none mr-5"><NavLink
+        {user?<><button onClick={handleLogOut} className="btn bg-red-300  border-none mr-5"><NavLink
           className={({ isActive }) =>
             isActive ? "text-red-500 font-semibold mx-12" : "mx-12"
           }
-          to="/login"
+
         >
           Log Out
-        </NavLink></button></>:<><button className="btn mr-5 bg-red-300 border-none text-white"><NavLink
+        </NavLink></button></>:<><button className="btn mr-5 border-none text-white"><NavLink
           className={({ isActive }) =>
             isActive ? "text-red-500 font-semibold mx-12" : "mx-12"
           }

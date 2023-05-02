@@ -1,18 +1,42 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
+import toast from 'react-hot-toast';
 
 const Login = () => {
+  const [error,setError]=useState("");
+  const {signIn}=useContext(AuthContext);
+
+  const handleLogin=(event)=>{
+    event.preventDefault();
+    const form=event.target;
+    const email=form.email.value;
+    const password=form.password.value;
+
+    signIn(email,password)
+    .then(result=>{
+      console.log(result)
+      setError("")
+      toast.success("Successfully Login")
+    })
+    .catch(error=>{
+      console.log(error)
+      setError(error.message)
+    })
+
+  }
+
   return (
     <div className="flex my-16 items-center justify-center">
-      <form className="bg-black bg-opacity-30 rounded-md p-10">
+      <form onSubmit={handleLogin} className="bg-black bg-opacity-30 rounded-md p-10">
         <h1 className="text-center text-2xl text-white mb-3">Login Please</h1>
         <div className="w-[400px] text-left mb-3">
           <label htmlFor="email">Email</label>
           <br></br>
           <input
             className="w-full focus:outline-none focus:bg-transparent focus:border-b-2 focus:text-white h-10 py-2 px-3 bg-white"
-            type="text"
+            type="email"
             name="email"
             placeholder="Enter Your Email"
             id=""
@@ -23,8 +47,8 @@ const Login = () => {
           <br></br>
           <input
             className="w-full focus:outline-none focus:bg-transparent focus:border-b-2 focus:text-white h-10 py-2 px-3 bg-white"
-            type="text"
-            name="name"
+            type="password"
+            name="password"
             placeholder="Enter Your Name"
             id=""
           />
@@ -45,6 +69,7 @@ const Login = () => {
             <span className="text-white font-bold">Login With GitHub</span>
           </button>
         </div>
+        <p className="text-red-500 mt-3 text-center">{error}</p>
       </form>
     </div>
   );
