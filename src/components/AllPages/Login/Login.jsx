@@ -19,6 +19,7 @@ const Login = () => {
     googleLogin(googleProvider)
       .then((result) => {
         toast.success("Successfully Login");
+        navigate(from)
       })
       .catch((error) => {
         setError(error.message);
@@ -28,7 +29,8 @@ const Login = () => {
   const handleGithubLogin=()=>{
     githubLogin(githubProvider)
     .then(result=>{
-      toast.success("Successfully Login")
+      toast.success("Successfully Login");
+      navigate(from)
     })
     .catch(error=>{
       setError(error.message)

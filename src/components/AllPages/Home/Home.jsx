@@ -4,6 +4,8 @@ import Chef from "../Chef/Chef";
 import chef from "../../../assets/Icons/chef.png";
 import service from "../../../assets/Icons/service.png";
 import quality from "../../../assets/Icons/quality.png";
+import Lottie from "lottie-react";
+import render from "../../../../public/kitchen.json";
 
 const Home = () => {
   const chefs = useLoaderData();
@@ -29,9 +31,9 @@ const Home = () => {
               stir-frying, steaming, and braising.
             </p>
             <a href="#chef">
-            <button className="btn bg-red-500 text-white border-none mt-10">
-              Choose Your Chef
-            </button>
+              <button className="btn bg-red-500 text-white border-none mt-10">
+                Choose Your Chef
+              </button>
             </a>
           </div>
         </div>
@@ -85,6 +87,68 @@ const Home = () => {
         {chefs.map((chef) => (
           <Chef key={chef.id} chef={chef}></Chef>
         ))}
+      </section>
+
+      <section className="my-20">
+        <fieldset className="border-2 flex p-5">
+          <legend className="border-2 bg-gray-600 rounded-full text-4xl text-white py-3 px-10 font-bold">
+            Another Chef
+          </legend>
+          <div className="w-[60%] p-5">
+            <div className=" bg-white bg-opacity-20 my-5 border text-white rounded-lg hover:bg-opacity-90 hover:text-black hover:border p-5">
+              <h1 className="font-bold text-lg">Martin Yan</h1>
+              <p className="border-b pb-2 border-gray-400">
+                Celebrity Chef and Restaurateur
+              </p>
+              <p>
+                <small>
+                  Martin Yan is a Chinese-American chef, author, and television
+                  host. He is best known for hosting the cooking show "Yan Can
+                  Cook," which aired on public television in the United States
+                  for over 30 years. Yan is a member of the James Beard
+                  Foundation and has published numerous cookbooks.
+                </small>
+              </p>
+            </div>
+
+            <div className=" bg-white bg-opacity-20 my-5 border text-white rounded-lg hover:bg-opacity-90 hover:text-black hover:border p-5">
+              <h1 className="font-bold text-lg">Ming Tsai</h1>
+              <p className="border-b pb-2 border-gray-400">
+                {" "}
+                Chef and Restaurateur
+              </p>
+              <p>
+                <small>
+                  Ming Tsai is a Chinese-American chef and restaurateur. He is
+                  the owner of Blue Dragon, a restaurant in Boston, and the
+                  author of several cookbooks. Tsai is also known for his
+                  television appearances on the cooking shows "East Meets West
+                  with Ming Tsai" and "Simply Ming."
+                </small>
+              </p>
+            </div>
+
+            <div className=" bg-white bg-opacity-20 my-5 border text-white rounded-lg hover:bg-opacity-90 hover:text-black hover:border p-5">
+              <h1 className="font-bold text-lg">Danny Bowien</h1>
+              <p className="border-b pb-2 border-gray-400">
+                {" "}
+                Chef and Restaurateur
+              </p>
+              <p>
+                <small>
+                  Danny Bowien is a Chinese-American chef and restaurateur. He
+                  is the owner of Mission Chinese Food, a restaurant in San
+                  Francisco and New York City. Bowien has been recognized by
+                  several food industry publications, including Food & Wine and
+                  Bon Appétit.
+                </small>
+              </p>
+            </div>
+          </div>
+          <div className="w-[40%] bg-opacity-60 p-10 flex items-center justify-center bg-white rounded-lg">
+            <Lottie animationData={render} loop={true} />
+          </div>
+        </fieldset>
       </section>
     </>
   );
