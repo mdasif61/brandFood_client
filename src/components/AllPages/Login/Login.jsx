@@ -3,13 +3,26 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import toast from 'react-hot-toast';
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
   const [error,setError]=useState("");
-  const {signIn}=useContext(AuthContext);
+  const {signIn,googleLogin,githubLogin}=useContext(AuthContext);
   const location=useLocation();
   const from=location.state?.from?.pathname || '/'
   const navigate=useNavigate()
+
+  const googleProvider=new GoogleAuthProvider()
+
+  const handleGoogleLogin=()=>{
+    googleLogin(googleProvider)
+    .then(result=>{
+      toast.success("Successfully Login")
+    })
+    .catch(error=>{
+      setError(error.message)
+    })
+  }
 
   const handleLogin=(event)=>{
     event.preventDefault();
@@ -33,7 +46,8 @@ const Login = () => {
 
   return (
     <div className="flex my-16 items-center justify-center">
-      <form onSubmit={handleLogin} className="bg-black bg-opacity-30 rounded-md p-10">
+      <div className="bg-black bg-opacity-30 rounded-md p-10">
+      <form onSubmit={handleLogin} >
         <h1 className="text-center text-2xl text-white mb-3">Login Please</h1>
         <div className="w-[400px] text-left mb-3">
           <label htmlFor="email">Email</label>
@@ -61,20 +75,20 @@ const Login = () => {
           Login
         </button>
         <p className="mt-3">Don't Have An Account? <Link to='/register'><span className="text-red-500 underline">Register</span></Link></p>
-
-        <div className="mt-5">
+      </form>
+      <div className="mt-5">
           <h1 className="text-center text-white">Or</h1>
-          <button className="flex btn w-full mt-3 border-white bg-white bg-opacity-25 rounded-md py-3 px-4">
+          <button onClick={handleGoogleLogin} className="flex btn w-full mt-3 border-white bg-white bg-opacity-25 rounded-md py-3 px-4">
             <FaGoogle className="text-xl text-white mx-4" />{" "}
             <span className="text-white font-bold">Login With Google</span>
           </button>
-          <button className="flex bg-opacity-25 btn w-full mt-3 border-white bg-white rounded-md py-3 px-4">
+          <button  className="flex bg-opacity-25 btn w-full mt-3 border-white bg-white rounded-md py-3 px-4">
             <FaGithub className="text-white text-xl mx-4" />{" "}
             <span className="text-white font-bold">Login With GitHub</span>
           </button>
         </div>
         <p className="text-red-500 mt-3 text-center">{error}</p>
-      </form>
+      </div>
     </div>
   );
 };
