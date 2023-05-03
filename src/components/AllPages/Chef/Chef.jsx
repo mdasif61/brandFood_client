@@ -2,6 +2,7 @@ import React from "react";
 import "./Chef.css";
 import { Link, useNavigation } from "react-router-dom";
 import LoadingPage from "../LoadingPage/LoadingPage";
+import LazyLoad from "react-lazy-load";
 
 const Chef = ({ chef }) => {
   const {
@@ -21,7 +22,9 @@ const Chef = ({ chef }) => {
   return (
     <div className="bg-white hover:bg-opacity-40 hover:border-white hover:border-2 p-10 h-[500px] flex flex-col justify-between">
       <div className="overflow-hidden">
+        <LazyLoad offset={500}>
         <img className="chef" src={image} alt="" />
+        </LazyLoad>
       </div>
       <div>
         <h1 className="text-black text-xl font-bold mb-4 mt-7">

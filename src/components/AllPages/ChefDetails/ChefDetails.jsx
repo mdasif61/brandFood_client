@@ -6,6 +6,7 @@ import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import LoadingPage from '../LoadingPage/LoadingPage';
+import LazyLoad from 'react-lazy-load';
 
 const ChefDetails = () => {
     const ChefDetail = useLoaderData()
@@ -25,7 +26,9 @@ const ChefDetails = () => {
                 <img src={banner} alt="" />
                 <div className='chefAll'>
                     <div className='chefImg'>
+                        <LazyLoad offset={0}>
                         <img src={ChefDetail.image} alt="" />
+                        </LazyLoad>
                     </div>
                     <div className='chefInfo bg-black w-[400px] mt-4 p-5 bg-opacity-60'>
                         <h1 className='text-red-500 font-bold'>{ChefDetail.chef_name}</h1>
