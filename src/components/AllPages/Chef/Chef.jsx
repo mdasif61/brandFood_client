@@ -31,9 +31,9 @@ const Chef = ({ chef }) => {
           Chef Name : {chef_name}
         </h1>
         <div className="p-5 bg-gradient-to-r rounded-l-xl from-red-100 to-transparent text-gray-800">
-          <h3>Experience : {years_of_experience}</h3>
-          <h3>Numbers of recipes : {number_of_recipes}</h3>
-          <h3>Likes : {likes}</h3>
+          <h3>Experience : {years_of_experience} years</h3>
+          <h3>Numbers of recipes : {number_of_recipes} recipes</h3>
+          <h3>Likes : {likes} likes</h3>
         </div>
       </div>
       <Link to={`/chef/${id}`}>
