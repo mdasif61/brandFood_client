@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <div className="md:flex justify-between text-center md:text-left items-center">
+    <div className="flex flex-col md:flex-row justify-between text-center md:text-left items-start">
       <div onClick={() => setOpen(!open)} className="md:hidden">
         <span>
           {open ? (
@@ -21,20 +21,19 @@ const Header = () => {
           )}
         </span>
       </div>
-      <h1 className="md:text-4xl text-2xl font-bold flex-1">
+      <div className={`flex flex-col duration-300 justify-between absolute md:static md:flex-row ${!open?"-left-96 top-16":"left-0 top-16 bg-black bg-opacity-80 py-4 w-10/12"} items-center w-full`}>
+      <h1 className="md:text-4xl mb-4 md:mb-0 text-2xl font-bold flex-1">
         Brand<span className="text-red-500 md:text-5xl">Food.C</span>
       </h1>
       <nav>
         <div
-          className={`flex flex-col absolute md:flex-row md:static items-center ${
-            !open ? "-top-48" : "top-12"
-          }`}
+          className={`flex flex-col md:flex-row items-center`}
         >
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "text-red-500 md:inline block font-semibold mx-12"
-                : "mx-12"
+                ? "text-red-500 md:inline block font-semibold mx-12 mb-3"
+                : "mx-12 mb-3"
             }
             to="/"
           >
@@ -42,15 +41,25 @@ const Header = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "text-red-500 font-semibold mx-12" : "mx-12"
+              isActive ? "text-red-500 font-semibold mx-12 mb-3" : "mx-12 mb-3"
             }
             to="/blog"
           >
             Blog
           </NavLink>
+          {user && <div
+          className={`md:w-12 md:h-12 border-4 border-white border-opacity-10 w-10 h-10 mb-3 md:mb-0 bg-black overflow-hidden rounded-full`}
+        >
+          <img
+            title={user.displayName}
+            className="h-full"
+            src={user.photoURL}
+            alt=""
+          />
+        </div>}
           {user ? (
             <>
-              <button onClick={handleLogOut} className="btn  border-none mr-5">
+              <button onClick={handleLogOut} className="btn border-white md:border-none ml-5">
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "text-red-500 font-semibold mx-12" : "mx-12"
@@ -62,7 +71,7 @@ const Header = () => {
             </>
           ) : (
             <>
-              <button className="btn mr-5 border-none text-white">
+              <button className="btn ml-5 border-white md:border-none text-white">
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "text-red-500 font-semibold mx-12" : "mx-12"
@@ -76,20 +85,7 @@ const Header = () => {
           )}
         </div>
       </nav>
-      {user && (
-        <div
-          className={`w-12 absolute md:static h-12 ${
-            !open ? "-top-48" : "top-12"
-          } bg-black overflow-hidden rounded-full`}
-        >
-          <img
-            title={user.displayName}
-            className="h-full"
-            src={user.photoURL}
-            alt=""
-          />
-        </div>
-      )}
+      </div>
     </div>
   );
 };
