@@ -19,19 +19,21 @@ const Footer = () => {
               <Link to="/blog">Blog</Link>
             </li>
             <li className="hover:underline mt-4">
-              <Link to="/contact">Contact</Link>
+              <Link>Contact</Link>
             </li>
             <li className="hover:underline mt-4">
               <Link>Food</Link>
             </li>
             <li className="hover:underline mt-4">
-              <Link to="/terms">Terms & Conditions</Link>
+              <Link>Terms & Conditions</Link>
             </li>
           </ul>
           {/* all links footer end */}
         </nav>
         <div className="flex flex-col md:mt-0 mt-10 items-center justify-center">
-          <h1 className="md:text-3xl text-xl text-red-500 md:mb-5 mb-2">NEWSLETTER</h1>
+          <h1 className="md:text-3xl text-xl text-red-500 md:mb-5 mb-2">
+            NEWSLETTER
+          </h1>
           <input
             className="mt-5 bg-white md:w-[350px] w-9/12 py-2 px-3 rounded-lg"
             type="text"
@@ -45,20 +47,24 @@ const Footer = () => {
         </div>
         <div className="flex flex-col items-center justify-center">
           <h1 className="md:text-3xl text-xl mb-5">Contact</h1>
-          <p className="text-center mb-5">123, Guangzhou City,<br/>China, No. 99 </p>
+          <p className="text-center mb-5">
+            123, Guangzhou City,
+            <br />
+            China, No. 99{" "}
+          </p>
           <div className="flex">
-          <span className="text-2xl m-3">
-                <FaGoogle />
-              </span>
-              <span className="text-2xl m-3">
-                <FaFacebook />
-              </span>
-              <span className="text-2xl m-3">
-                <FaInstagram />
-              </span>
-              <span className="text-2xl m-3">
-                <FaTwitter />
-              </span>
+            <span className="text-2xl m-3">
+              <FaGoogle />
+            </span>
+            <span className="text-2xl m-3">
+              <FaFacebook />
+            </span>
+            <span className="text-2xl m-3">
+              <FaInstagram />
+            </span>
+            <span className="text-2xl m-3">
+              <FaTwitter />
+            </span>
           </div>
         </div>
       </div>
