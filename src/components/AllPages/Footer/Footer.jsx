@@ -10,6 +10,7 @@ const Footer = () => {
           <h1 className="md:text-4xl text-xl font-bold flex-1 py-2 mb-4 md:border-b-2">
             Brand<span className="text-red-500 text-xl md:text-5xl">Food</span>
           </h1>
+          {/* all links footer start */}
           <ul>
             <li className="hover:underline mt-4">
               <Link to="/">Home</Link>
@@ -27,6 +28,7 @@ const Footer = () => {
               <Link to="/terms">Terms & Conditions</Link>
             </li>
           </ul>
+          {/* all links footer end */}
         </nav>
         <div className="flex flex-col md:mt-0 mt-10 items-center justify-center">
           <h1 className="md:text-3xl text-xl text-red-500 md:mb-5 mb-2">NEWSLETTER</h1>

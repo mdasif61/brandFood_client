@@ -22,6 +22,7 @@ const ChefDetails = () => {
   }
   return (
     <div className="my-10 w-full mx-0">
+        {/* header start */}
       <header className="bg-white w-full relative">
         <img src={banner} alt="" />
         <div className="chefAll">
@@ -41,6 +42,8 @@ const ChefDetails = () => {
           </div>
         </div>
       </header>
+      {/* header end */}
+      {/* chef details table start */}
       <div className="w-full my-12">
         <table className="table border my-6 w-full">
           <thead>
@@ -115,6 +118,7 @@ const ChefDetails = () => {
           </button>
         </div>
       </div>
+      {/* chef details table end */}
     </div>
   );
 };

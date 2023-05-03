@@ -18,6 +18,7 @@ const Register = () => {
     const photoURL=form.photo.value;
     console.log(name,email,password,photoURL);
 
+    // user info validation start
     if(!password){
       setError("password has been required");
       return;
@@ -31,7 +32,8 @@ const Register = () => {
       setError("email not valid");
       return;
     }
-
+    // user info validation end
+    
     createUser(email,password)
     .then(result=>{
       const users=result.user;
