@@ -33,7 +33,7 @@ const Register = () => {
       return;
     }
     // user info validation end
-    
+
     createUser(email,password)
     .then(result=>{
       const users=result.user;
@@ -99,7 +99,7 @@ const Register = () => {
             className="w-full focus:outline-none focus:bg-transparent focus:border-b-2 focus:text-white h-10 py-2 px-3 bg-white"
             type="password"
             name="password"
-            placeholder="Enter Your Name"
+            placeholder="Enter Your Password"
             id=""
           />
         </div>
